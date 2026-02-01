@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AH3520
+namespace AA0000
 {
     public class TestingScript : MonoBehaviour
     {
