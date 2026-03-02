@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c718a3997c49f5f4bab052959b644b79
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184747
+  packageName: Classic FPS Controller
+  packageVersion: 1.0.1
+  assetPath: Assets/ClassicFPSController/Prefabs/Player.prefab
+  uploadId: 410586

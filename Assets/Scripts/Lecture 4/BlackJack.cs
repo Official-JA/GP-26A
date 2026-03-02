@@ -3,14 +3,17 @@ using JetBrains.Annotations;
 using NUnit.Framework;
 using UnityEngine;
 
+
 namespace AH3520
 {
     public class BlackJack : MonoBehaviour
     {
+        
         public KeyCode hitKey = KeyCode.Q;
 
         public KeyCode standKey = KeyCode.E;
 
+        // List of strings (cards)
         List<string> cardList = new List<string>
             {
                 "Ace of Diamonds", "Two of Diamonds", "Three of Diamonds", "Four of Diamonds", "Five of Diamonds", "Six of Diamonds", "Eight of Diamonds", "Nine of Diamonds", "Ten of Diamonds", "Jack of Diamonds", "Queen of Diamonds", "King of Diamonds",
@@ -19,38 +22,50 @@ namespace AH3520
                 "Ace of Spades", "Two of Spades", "Three of Spades", "Four of Spades", "Five of Spades", "Six of Spades", "Eight of Spades", "Nine of Spades", "Ten of Spades", "Jack of Spades", "Queen of Spades", "King of Spades",
             };
 
+        // Takes a random string (card) from the list
         public string GetRandomString()
         {
             int randomIndex = Random.Range(0, cardList.Count);
             return cardList[randomIndex];
         }
 
+        string randomCard;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        string randomCard2; 
+
+        // Start
         void Start()
         {
-            string randomCard = GetRandomString();
+           randomCard = GetRandomString();
+           randomCard2 = GetRandomString();
 
-            string randomCard2 = GetRandomString();
 
-            Debug.Log("Your hand: {0} & {1}", randomCard, randomCard2);
 
 
 
 
         }
 
-        // Update is called once per frame
+        void OnGUI()
+        {
+            GUIStyle headStyle = new GUIStyle();
+            headStyle.fontSize = 60;
+
+            GUI.Label(new Rect(100, 100, 2000, 2000), "Your hand: " + randomCard + " & " + randomCard2, headStyle);
+        }
+        
+        // Update
         void Update()
         {
             if (Input.GetKeyDown(hitKey))
             {
-                
+                string hitCard = GetRandomString();
+                string hitCard2 = GetRandomString();
             }
 
             if (Input.GetKeyDown(standKey))
             {
-
+                
             }
 
 
