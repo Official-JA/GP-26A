@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace AH3520
 {
-    public class BlackJack : MonoBehaviour
+    public class BlackJackV2 : MonoBehaviour
     {
         public KeyCode hitKey = KeyCode.Q;
         public KeyCode standKey = KeyCode.E;
@@ -25,6 +25,10 @@ namespace AH3520
                 "Ace of Hearts", "Two of Hearts", "Three of Hearts", "Four of Hearts", "Five of Hearts", "Six of Hearts", "Seven of Hearts", "Eight of Hearts", "Nine of Hearts", "Ten of Hearts", "Jack of Hearts", "Queen of Hearts", "King of Hearts",
                 "Ace of Spades", "Two of Spades", "Three of Spades", "Four of Spades", "Five of Spades", "Six of Spades", "Seven of Spades", "Eight of Spades", "Nine of Spades", "Ten of Spades", "Jack of Spades", "Queen of Spades", "King of Spades",
             };
+
+        List<string> playerHand = new List<string>();
+
+        List<string> dealerHand = new List<string>();
 
         enum Rank // Assigns a numeric value to specific strings.
         {
@@ -61,7 +65,31 @@ namespace AH3520
             return -1;
         }
 
-        void ResetGame()
+        private string BuildHandString(List<string> hand) // Automatically adds " & " between strings in the list.
+        {
+            return string.Join(" & ", hand);
+        }
+
+        private string DrawHand(List<string> hand) // Takes a random string and adds it to the list.
+        {
+            string card = GetRandomString();
+            hand.Add(card);
+            cardList.Remove(card);
+            return card;
+        }
+
+        private int CalculateHand(List<string> hand) // Calculates the value of the whole hand.
+        {
+            int total = 0;
+
+            foreach (string card in hand)
+            {
+                total += GetCardValue(card);
+            }
+            return total;
+        }
+
+        void ResetGame() // Resets game
         {
             cardList = new List<string>
                 {
@@ -71,6 +99,9 @@ namespace AH3520
                     "Ace of Spades", "Two of Spades", "Three of Spades", "Four of Spades", "Five of Spades", "Six of Spades", "Seven of Spades", "Eight of Spades", "Nine of Spades", "Ten of Spades", "Jack of Spades", "Queen of Spades", "King of Spades",
                 };
 
+            playerHand.Clear();
+            dealerHand.Clear();
+
             total = 0;
             total2 = 0;
 
@@ -78,112 +109,70 @@ namespace AH3520
             labelText2 = "";
             labelText3 = "";
 
-            hasExecuted = false;
             playerDone = false;
 
             Start();
         }
 
 
-        private int total, total2, cardValue, cardValue2, hitCardValue, hitCardValue2, hitCardValue3, dealerCardValue, dealerCardValue2, dealerCardValue3;
+        private int total, total2;
 
-        private string randomCard, randomCard2, hitCard, hitCard2, hitCard3, dealerCard, dealerCard2, dealerCard3, labelText, labelText2, labelText3;
+        private string labelText, labelText2, labelText3;
 
-        private bool hasExecuted, playerDone;
+        private bool playerDone;
 
         // Start
         void Start()
         {
-            randomCard = GetRandomString();
-            cardValue = GetCardValue(randomCard);
-            cardList.Remove(randomCard);
+            playerHand.Clear();
+            dealerHand.Clear();
 
-            randomCard2 = GetRandomString();
-            cardValue2 = GetCardValue(randomCard2);
-            cardList.Remove(randomCard2);
+            DrawHand(playerHand);
+            DrawHand(dealerHand);
 
-            total = cardValue + cardValue2;
+            DrawHand(playerHand);
+            DrawHand(dealerHand);
 
-            dealerCard = GetRandomString();
-            dealerCardValue = GetCardValue(dealerCard);
-            cardList.Remove(dealerCard);
+            total = CalculateHand(playerHand);
+            total2 = CalculateHand(dealerHand);
 
-            dealerCard2 = GetRandomString();
-            dealerCardValue2 = GetCardValue(dealerCard2);
-            cardList.Remove(dealerCard2);
-
-            hasExecuted = false;
             playerDone = false;
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(hitKey) && !hasExecuted && playerDone == false) // Gives the player a card if they hit
+            if (Input.GetKeyDown(hitKey) && !playerDone) // When the player hits.
             {
-                hitCard = GetRandomString();
+                DrawHand(playerHand);
 
-                hitCardValue = GetCardValue(hitCard);
+                total = CalculateHand(playerHand);
 
-                cardList.Remove(hitCard);
-
-                total += hitCardValue;
-
-                if (total < 22)
+                if (total > 21)
                 {
-                    labelText = "Your hand: " + randomCard + " & " + randomCard2 + " & " + hitCard + " (Total: " + total + ")";
-                    hasExecuted = true;
-                }
-                else
-                {
-                    labelText = "Your hand: " + randomCard + " & " + randomCard2 + " & " + hitCard + " (Total: " + total + ")";
-                    labelText3 = "Bust!";
-                    playerDone = true;
-
-                }
-            }
-            else if (Input.GetKeyDown(hitKey) && hasExecuted && playerDone == false) // if the player hits again
-            {
-                hitCard2 = GetRandomString();
-
-                hitCardValue2 = GetCardValue(hitCard2);
-
-                cardList.Remove(hitCard2);
-
-                total += hitCardValue2;
-
-                if (total < 22)
-                {
-                    labelText = "Your hand: " + randomCard + " & " + randomCard2 + " & " + hitCard + " & " + hitCard2 + " (Total: " + total + ")";
-                    hasExecuted = false;
-                }
-                else
-                {
-                    labelText = "Your hand: " + randomCard + " & " + randomCard2 + " & " + hitCard + " & " + hitCard2 + " (Total: " + total + ")";
+                    labelText = "Your hand: " + BuildHandString(playerHand) + " (Total: " + total + ")";
                     labelText3 = "Bust!";
                     playerDone = true;
                 }
+                else
+                {
+                    labelText = "Your hand: " + BuildHandString(playerHand) + " (Total: " + total + ")";
+                }
             }
-
-            if (Input.GetKeyDown(standKey) && playerDone == false) // if the player decides to stand
+            
+            if (Input.GetKeyDown(standKey) && !playerDone) // if the player decides to stand.
             {
                 playerDone = true;
 
-                dealerCard3 = GetRandomString();
-                dealerCardValue3 = GetCardValue(dealerCard3);
-                cardList.Remove(dealerCard3);
-
-                total2 = dealerCardValue + dealerCardValue2;
-
-                labelText2 = "Dealer's hand: " + dealerCard + " & " + dealerCard2 + " (Total: " + total2 + ")";
-
-                if (total2 < 17)
+                while (CalculateHand(dealerHand) < 17)
                 {
-                    total2 += dealerCardValue3;
-
-                    labelText2 = "Dealer's hand: " + dealerCard + " & " + dealerCard2 + " & " + dealerCard3 + " (Total: " + total2 + ")";
+                    DrawHand(dealerHand);
                 }
+                
+                total2 = CalculateHand(dealerHand);
 
-                if (total2 > 22)
+                labelText2 = "Dealer's hand: " + BuildHandString(dealerHand) + " (Total: " + total2 + ")";
+
+                if (total2 > 21)
                 {
                     labelText3 = "Dealer bust! Player wins!";
                 }
@@ -191,7 +180,7 @@ namespace AH3520
                 {
                     labelText3 = "Player wins!";
                 }
-                else if (total < total2 && total2 < 22)
+                if (total < total2 && total2 < 22)
                 {
                     labelText3 = "Dealer wins!";
                 }
@@ -199,16 +188,24 @@ namespace AH3520
                 {
                     labelText3 = "Blackjack! Player wins!";
                 }
+                if (total == total2)
+                {
+                    labelText3 = "Push!";
+                }
+                if (total2 == 21 && total < total2)
+                {
+                    labelText3 = "Dealer wins! Totally not rigged XOXO";
+                }
             }
 
-            if (Input.GetKeyDown(restartKey))
+            if(Input.GetKeyDown(restartKey))
             {
                 ResetGame();
             }
         }
 
-        void OnGUI() // Everything UI related goes here
-        {
+        void OnGUI() // Everything UI related goes here, also everything here updates the last and once per frame.
+        { 
             GUIStyle headStyle = new GUIStyle(GUI.skin.label);
             headStyle.fontSize = 70;
             Font myFont = (Font)Resources.Load("Fonts/CasinoF", typeof(Font));
@@ -224,8 +221,9 @@ namespace AH3520
 
             if (string.IsNullOrEmpty(labelText))
             {
-                labelText = "Your hand: " + randomCard + " & " + randomCard2 + " (Total: " + total + ")";
-                labelText2 = "Dealer's hand: " + dealerCard + " & " + "_____ (Total: __)";
+                labelText = "Your hand: " + BuildHandString(playerHand) + " (Total: " + total + ")";
+                labelText2 = "Dealer's hand: " + dealerHand[0] + " & " + "_____ (Total: __)";
+                labelText3 = "*Outcome*";
             }
 
             GUI.Label(new Rect(220, 100, 2000, 2000), labelText, headStyle);
@@ -237,7 +235,7 @@ namespace AH3520
             GUI.Label(new Rect(220, 750, 3000, 2000), labelText3, thirdStyle);
             GUI.DrawTexture(new Rect(10, 700, 200, 200), chipIcon);
         }
-
+     
     }
 }
 

@@ -2619,7 +2619,7 @@ GameObject:
   - component: {fileID: 2002996756}
   - component: {fileID: 2002996755}
   - component: {fileID: 2002996754}
-  - component: {fileID: 2002996753}
+  - component: {fileID: 2002996757}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -2642,19 +2642,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1897447331}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2002996753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002996751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517dfbf4789da7c47a45f9c3ddcffdc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AH3520.EnableWithTag
-  blackJackScript: {fileID: 1555388541}
 --- !u!65 &2002996754
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2733,6 +2720,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002996751}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2002996757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002996751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b787d46e7f02c4da7f5d0833495a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AH3520.EnableWithTagV2
+  blackJackScript: {fileID: 1555388541}
 --- !u!1 &2125840844
 GameObject:
   m_ObjectHideFlags: 0
