@@ -11,12 +11,12 @@ namespace AH3520
 {
     public class BlackJackV2 : MonoBehaviour
     {
-        public KeyCode hitKey = KeyCode.Q;
-        public KeyCode standKey = KeyCode.E;
-        public KeyCode restartKey = KeyCode.R;
-        public Texture2D cardIcon;
-        public Texture2D dealerIcon;
-        public Texture2D chipIcon;
+        [SerializeField] private KeyCode hitKey = KeyCode.Q;
+        [SerializeField] private KeyCode standKey = KeyCode.E;
+        [SerializeField] private KeyCode restartKey = KeyCode.R;
+        [SerializeField] private Texture2D cardIcon;
+        [SerializeField] private Texture2D dealerIcon;
+        [SerializeField] private Texture2D chipIcon;
 
         List<string> cardList = new List<string> // List of strings (cards)
             {
@@ -208,7 +208,7 @@ namespace AH3520
         { 
             GUIStyle headStyle = new GUIStyle(GUI.skin.label);
             headStyle.fontSize = 70;
-            Font myFont = (Font)Resources.Load("Fonts/CasinoF", typeof(Font));
+            Font myFont = (Font)Resources.Load("Fonts/CasinoF", typeof(Font)); // Font is taken from a path "Resources/Fonts/CasinoF/" in the project window
             headStyle.font = myFont;
 
             GUIStyle secondStyle = new GUIStyle(GUI.skin.label);

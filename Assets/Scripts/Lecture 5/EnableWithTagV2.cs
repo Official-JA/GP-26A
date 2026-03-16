@@ -6,7 +6,7 @@ namespace AH3520
     public class EnableWithTagV2 : MonoBehaviour
     {
 
-        public BlackJackV2 blackJackScript;
+        [SerializeField] private BlackJackV2 blackJackScript;
 
         void OnTriggerEnter(Collider other)
         {

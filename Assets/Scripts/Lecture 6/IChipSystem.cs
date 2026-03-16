@@ -10,7 +10,7 @@ namespace AH3520
 }
 
 
-public class BlackJackV2 : IChipSystem
+public class IChipSystem : BlackJackV2
 {
 
 }
