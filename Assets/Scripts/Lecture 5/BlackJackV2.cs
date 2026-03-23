@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace AH3520
 {
-    public class BlackJackV2 : MonoBehaviour
+    public class BlackJackV2 : CasinoGames
     {
         [SerializeField] private KeyCode hitKey = KeyCode.Q;
         [SerializeField] private KeyCode standKey = KeyCode.E;
@@ -113,7 +113,6 @@ namespace AH3520
 
             Start();
         }
-
 
         private int total, total2;
 

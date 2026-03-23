@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace AH3520
 {
-    public class ChipSystem : BlackJackV2
+    public class ChipSystem : MonoBehaviour
     {
         [SerializeField] private int chipAmount = 100;
         
