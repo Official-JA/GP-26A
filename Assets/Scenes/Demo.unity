@@ -721,16 +721,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6fcc6fe754319438f76cb0adb5ed56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AH3520.BlackJack
-  chipAmount: 100
-  betAmount: 10
-  increaseBet: 273
-  decreaseBet: 274
   hitKey: 113
   standKey: 101
   restartKey: 114
   cardIcon: {fileID: 0}
   dealerIcon: {fileID: 0}
   chipIcon: {fileID: 0}
+  casinoGames: {fileID: 0}
 --- !u!65 &533164773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -821,9 +818,9 @@ GameObject:
   - component: {fileID: 702495983}
   - component: {fileID: 702495982}
   - component: {fileID: 702495981}
-  - component: {fileID: 702495985}
+  - component: {fileID: 702495984}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CasinoGames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -922,7 +919,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702495978}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &702495985
+--- !u!114 &702495984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2017,16 +2014,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6fcc6fe754319438f76cb0adb5ed56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AH3520.BlackJack
-  chipAmount: 100
-  betAmount: 10
-  increaseBet: 273
-  decreaseBet: 274
   hitKey: 113
   standKey: 101
   restartKey: 114
   cardIcon: {fileID: 2800000, guid: 9255f105ee69d90438ee2fe03f61f6d7, type: 3}
   dealerIcon: {fileID: 2800000, guid: ab1dc385c53df4a4a900a5b31cc3faa3, type: 3}
   chipIcon: {fileID: 2800000, guid: 428a3a3ed8c4c8647ae63672d7f6c935, type: 3}
+  casinoGames: {fileID: 702495984}
 --- !u!1 &1600379038
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,7 +2210,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70625985, z: -0, w: 0.7079528}
   m_LocalPosition: {x: 0.33, y: 0, z: 29.3}
-  m_LocalScale: {x: 0, y: 20, z: 20}
+  m_LocalScale: {x: 0, y: 20, z: 26.022}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1377552585}

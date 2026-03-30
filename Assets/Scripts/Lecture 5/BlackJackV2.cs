@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace AH3520
 {
-    public class BlackJackV2 : CasinoGames
+    public class BlackJackV2 : MonoBehaviour
     {
         [SerializeField] private KeyCode hitKey = KeyCode.Q;
         [SerializeField] private KeyCode standKey = KeyCode.E;
@@ -17,6 +17,7 @@ namespace AH3520
         [SerializeField] private Texture2D cardIcon;
         [SerializeField] private Texture2D dealerIcon;
         [SerializeField] private Texture2D chipIcon;
+        [SerializeField] private CasinoGames casinoGames;
 
         List<string> cardList = new List<string> // List of strings (cards)
             {
@@ -105,9 +106,9 @@ namespace AH3520
             total = 0;
             total2 = 0;
 
-            labelText = "";
-            labelText2 = "";
-            labelText3 = "";
+            labelText = null;
+            labelText2 = null;
+            labelText3 = null;
 
             playerDone = false;
 
@@ -140,8 +141,8 @@ namespace AH3520
 
         void Update()
         {
-            if (Input.GetKeyDown(hitKey) && !playerDone) // When the player hits.
-            {
+            if (Input.GetKeyDown(hitKey) && !playerDone && casinoGames.chipAmount > 0) // When the player hits.
+            {                
                 DrawHand(playerHand);
 
                 total = CalculateHand(playerHand);
@@ -151,6 +152,7 @@ namespace AH3520
                     labelText = "Your hand: " + BuildHandString(playerHand) + " (Total: " + total + ")";
                     labelText3 = "Bust!";
                     playerDone = true;
+                    casinoGames.chipAmount -= casinoGames.betAmount;
                 }
                 else
                 {
@@ -158,7 +160,7 @@ namespace AH3520
                 }
             }
             
-            if (Input.GetKeyDown(standKey) && !playerDone) // if the player decides to stand.
+            if (Input.GetKeyDown(standKey) && !playerDone && casinoGames.chipAmount > 0) // if the player decides to stand.
             {
                 playerDone = true;
 
@@ -171,21 +173,25 @@ namespace AH3520
 
                 labelText2 = "Dealer's hand: " + BuildHandString(dealerHand) + " (Total: " + total2 + ")";
 
-                if (total2 > 21)
+                if (total2 > 21 && total != 21)
                 {
                     labelText3 = "Dealer bust! Player wins!";
+                    casinoGames.chipAmount += casinoGames.betAmount;
                 }
                 if (total > total2)
                 {
                     labelText3 = "Player wins!";
+                    casinoGames.chipAmount += casinoGames.betAmount;
                 }
-                if (total < total2 && total2 < 22)
+                if (total < total2 && total2 < 22 && total2 != 21)
                 {
                     labelText3 = "Dealer wins!";
+                    casinoGames.chipAmount -= casinoGames.betAmount;
                 }
                 if (total == 21 && total > total2)
                 {
                     labelText3 = "Blackjack! Player wins!";
+                    casinoGames.chipAmount += 1.5f * casinoGames.betAmount;
                 }
                 if (total == total2)
                 {
@@ -194,6 +200,7 @@ namespace AH3520
                 if (total2 == 21 && total < total2)
                 {
                     labelText3 = "Dealer wins! Totally not rigged XOXO";
+                    casinoGames.chipAmount -= casinoGames.betAmount;
                 }
             }
 
@@ -204,7 +211,7 @@ namespace AH3520
         }
 
         void OnGUI() // Everything UI related goes here, also everything here updates the last and once per frame.
-        { 
+        {          
             GUIStyle headStyle = new GUIStyle(GUI.skin.label);
             headStyle.fontSize = 70;
             Font myFont = (Font)Resources.Load("Fonts/CasinoF", typeof(Font)); // Font is taken from a path "Resources/Fonts/CasinoF/" in the project window
@@ -223,6 +230,13 @@ namespace AH3520
                 labelText = "Your hand: " + BuildHandString(playerHand) + " (Total: " + total + ")";
                 labelText2 = "Dealer's hand: " + dealerHand[0] + " & " + "_____ (Total: __)";
                 labelText3 = "*Outcome*";
+
+                if (casinoGames.chipAmount == 0)
+                {
+                    labelText = null;
+                    labelText2 = "Get lost brokie";
+                    labelText3 = null;
+                }
             }
 
             GUI.Label(new Rect(220, 100, 2000, 2000), labelText, headStyle);

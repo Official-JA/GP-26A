@@ -4,9 +4,8 @@ namespace AH3520
 {
     public class CasinoGames : MonoBehaviour
     {
-        [SerializeField] protected int chipAmount = 100;
-        [SerializeField] protected int betAmount = 10;
-        
+        [SerializeField] public float chipAmount = 100f;
+        [SerializeField] public float betAmount = 10f;
         [SerializeField] private KeyCode increaseBet = KeyCode.UpArrow;
         [SerializeField] private KeyCode decreaseBet = KeyCode.DownArrow;
 
@@ -30,6 +29,11 @@ namespace AH3520
                 {
                     betAmount -= 10;
                 }
+            }
+
+            if (chipAmount == 0)
+            {
+                betAmount = 0;
             }
         }
 
