@@ -17,12 +17,12 @@ namespace AH3520
             {
                 if (Input.GetKeyDown(increaseBet) && betAmount < chipAmount) // Increasing the bet, can't bet more than you own
                 {
-                    betAmount += 10;
+                    betAmount += 5;
                 }
 
-                if (Input.GetKeyDown(decreaseBet) && 10 < betAmount) // Decreasing the bet, min. amount to bet is 10
+                if (Input.GetKeyDown(decreaseBet) && 5 < betAmount) // Decreasing the bet, min. amount to bet is 10
                 {
-                    betAmount -= 10;
+                    betAmount -= 5;
                 }
             }
 
