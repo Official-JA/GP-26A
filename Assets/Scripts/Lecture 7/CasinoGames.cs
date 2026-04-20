@@ -26,7 +26,7 @@ namespace AH3520
                 }
             }
 
-            if (chipAmount == 0 || chipAmount < betAmount) // Fixes contradictions
+            if (chipAmount == 0 || chipAmount < betAmount) // Fixes contradictions (if any)
             {
                 betAmount = chipAmount;
             }
