@@ -728,6 +728,10 @@ MonoBehaviour:
   dealerIcon: {fileID: 0}
   chipIcon: {fileID: 0}
   casinoGames: {fileID: 0}
+  chipPrefab: {fileID: 0}
+  chipPrefab2: {fileID: 0}
+  chipPrefab3: {fileID: 0}
+  chipPrefab4: {fileID: 0}
 --- !u!65 &533164773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -946,7 +950,7 @@ PrefabInstance:
     - target: {fileID: 3393448925671727929, guid: c718a3997c49f5f4bab052959b644b79,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.3
+      value: -20.26
       objectReference: {fileID: 0}
     - target: {fileID: 3393448925671727929, guid: c718a3997c49f5f4bab052959b644b79,
         type: 3}
@@ -956,7 +960,7 @@ PrefabInstance:
     - target: {fileID: 3393448925671727929, guid: c718a3997c49f5f4bab052959b644b79,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.1
+      value: 8.1
       objectReference: {fileID: 0}
     - target: {fileID: 3393448925671727929, guid: c718a3997c49f5f4bab052959b644b79,
         type: 3}
@@ -1001,7 +1005,7 @@ PrefabInstance:
     - target: {fileID: 3393448925671727930, guid: c718a3997c49f5f4bab052959b644b79,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1015,6 +1019,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1188968130}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3393448925671727930, guid: c718a3997c49f5f4bab052959b644b79,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1317777628}
     - targetCorrespondingSourceObject: {fileID: 3393448926269782975, guid: c718a3997c49f5f4bab052959b644b79,
         type: 3}
       insertIndex: -1
@@ -1706,6 +1714,26 @@ Transform:
   - {fileID: 800183534}
   m_Father: {fileID: 2125840845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1317777626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3393448925671727930, guid: c718a3997c49f5f4bab052959b644b79,
+    type: 3}
+  m_PrefabInstance: {fileID: 742011165}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1317777628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317777626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740f4afd2d703a946a8c520892c8e331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AH3520.ObjectSpawner
+  Card: {fileID: 7436637549305543923, guid: 4ca5cda4f6abc29459ca4fd322eb3c69, type: 3}
+  spawnKey: 116
 --- !u!1 &1340993901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,6 +2054,10 @@ MonoBehaviour:
   dealerIcon: {fileID: 2800000, guid: ab1dc385c53df4a4a900a5b31cc3faa3, type: 3}
   chipIcon: {fileID: 2800000, guid: 428a3a3ed8c4c8647ae63672d7f6c935, type: 3}
   casinoGames: {fileID: 702495984}
+  chipPrefab: {fileID: 0}
+  chipPrefab2: {fileID: 0}
+  chipPrefab3: {fileID: 0}
+  chipPrefab4: {fileID: 0}
 --- !u!1 &1600379038
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,11 +8,14 @@ namespace AH3520
         [SerializeField] GameObject playerPrefab;
         [SerializeField] GameObject cameraPrefab;
         
+        private AudioSource audioSource;
+        
         private string title = "";
 
         IEnumerator DelayTime(float delay)
         {
             yield return new WaitForSeconds(delay);
+            audioSource.Play();
             title = "gambling.";
         }
 
@@ -26,6 +29,8 @@ namespace AH3520
         // Start 
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
+
             StartCoroutine(DelayTime(2f));
 
             StartCoroutine(ActivatePlayer(5f));

@@ -223,17 +223,17 @@ namespace AH3520
                     labelText3 = "Dealer bust! Player wins!";
                     casinoGames.chipAmount += casinoGames.betAmount;
                 }
-                if (total > total2)
+                if (total > total2 && total != 21)
                 {
                     labelText3 = "Player wins!";
                     casinoGames.chipAmount += casinoGames.betAmount;
                 }
-                if (total < total2 && total2 < 22 && total2 != 21)
+                if (total < total2 && total2 < 21)
                 {
                     labelText3 = "Dealer wins!";
                     casinoGames.chipAmount -= casinoGames.betAmount;
                 }
-                if (total == 21 && total > total2)
+                if (total == 21 && total2 != 21)
                 {
                     labelText3 = "Blackjack! Player wins!";
                     casinoGames.chipAmount += 1.5f * casinoGames.betAmount;
