@@ -1,26 +1,20 @@
-using AH3520;
 using UnityEngine;
 
 namespace AH3520
 {
-    public class ObjectManager : ObjectSpawner
-    {
-        protected override void SpawnObject()
-        {
-            
-            base.SpawnObject();
-        }
+    public class ObjectManager : MonoBehaviour
+    {        
+        [SerializeField] protected GameObject Card;
         
-        
-        
-        void Start()
+        private GameObject Spawner;
+
+        private float distance = 1.0f;
+                
+        protected virtual void SpawnObject()
         {
+            Vector3 posForward = transform.position + (transform.forward * distance);
 
-        }
-
-        void Update()
-        {
-
+            Instantiate(Card, posForward, Quaternion.identity);
         }
     }
 }

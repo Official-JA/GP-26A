@@ -3,21 +3,15 @@ using UnityEngine;
 
 namespace AH3520
 {
-    public class ObjectSpawner : MonoBehaviour
+    public class ObjectSpawner : ObjectManager
     {
-        [SerializeField] private GameObject Card;
-
         [SerializeField] private KeyCode spawnKey = KeyCode.T;
-        
-        private GameObject Spawner;
 
-        private float distance = 1.0f;
-
-        protected virtual void SpawnObject()
+        protected override void SpawnObject()
         {
-            Vector3 pos = transform.position + (transform.forward * distance); 
+            Vector3 posBehind = transform.position - transform.forward * 1f;
 
-            Instantiate(Card, pos, Quaternion.identity);
+            Instantiate(Card, posBehind, Quaternion.identity);
         }
 
         void Update()
