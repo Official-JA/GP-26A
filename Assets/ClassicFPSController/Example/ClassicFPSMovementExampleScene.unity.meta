@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7220f419c8faa114db9649f1c2c9ee46
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184747
+  packageName: Classic FPS Controller
+  packageVersion: 1.0.1
+  assetPath: Assets/ClassicFPSController/Example/ClassicFPSMovementExampleScene.unity
+  uploadId: 410586

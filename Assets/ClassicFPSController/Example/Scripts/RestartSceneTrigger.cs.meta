@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 09526b2fd083a3b43833d95d84e0e9e4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184747
+  packageName: Classic FPS Controller
+  packageVersion: 1.0.1
+  assetPath: Assets/ClassicFPSController/Example/Scripts/RestartSceneTrigger.cs
+  uploadId: 410586

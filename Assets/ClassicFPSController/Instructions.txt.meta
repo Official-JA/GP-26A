@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a92042ac5bb68a2489ddd1ae058e5e33
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184747
+  packageName: Classic FPS Controller
+  packageVersion: 1.0.1
+  assetPath: Assets/ClassicFPSController/Instructions.txt
+  uploadId: 410586
