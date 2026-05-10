@@ -11,6 +11,18 @@ namespace AH3520
         {
             Vector3 posBehind = transform.position - transform.forward * 1f;
 
+            if (Card.GetComponent<Rigidbody>() == null)
+            {
+                Rigidbody rb = Card.AddComponent<Rigidbody>();
+                rb.mass = 1f;
+            }
+
+            if (Card.GetComponent<MeshCollider>() == null)
+            {
+                MeshCollider collider = Card.AddComponent<MeshCollider>();
+                collider.convex = true;
+            }
+            
             Instantiate(Card, posBehind, Quaternion.identity);
         }
 

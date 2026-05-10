@@ -1023,6 +1023,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1317777628}
+    - targetCorrespondingSourceObject: {fileID: 3393448925671727930, guid: c718a3997c49f5f4bab052959b644b79,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1317777632}
+    - targetCorrespondingSourceObject: {fileID: 3393448925671727930, guid: c718a3997c49f5f4bab052959b644b79,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1317777633}
     - targetCorrespondingSourceObject: {fileID: 3393448926269782975, guid: c718a3997c49f5f4bab052959b644b79,
         type: 3}
       insertIndex: -1
@@ -1734,6 +1742,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AH3520.ObjectSpawner
   Card: {fileID: 7436637549305543923, guid: 4ca5cda4f6abc29459ca4fd322eb3c69, type: 3}
   spawnKey: 116
+--- !u!114 &1317777632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317777626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2506adcc96e9ba247b71d883b0946ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AH3520.ObjectManager
+  Card: {fileID: 5238229698082930995, guid: 9f8a439926a290e4f9307e1ff9f5d8ad, type: 3}
+--- !u!114 &1317777633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317777626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1da47b90272e84e8e930d0e68506aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AH3520.ObjectRemove
+  activate: 122
+  player: {fileID: 1317777626}
 --- !u!1 &1340993901
 GameObject:
   m_ObjectHideFlags: 0

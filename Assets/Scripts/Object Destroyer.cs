@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace AH3520
 {
-    public abstract class ObjectDestroyer
+    public abstract class ObjectDestroyer : MonoBehaviour
     {
-        public abstract void Destroy();
+        public abstract void DestroyAura();
     }
 }
