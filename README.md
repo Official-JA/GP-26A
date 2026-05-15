@@ -30,3 +30,5 @@ Assets used:
    https://icons8.com/icon/PP3hpZk5tgUG/blackjack
    https://www.flaticon.com/free-icon/dealer_10749904?related_id=10751432&origin=search
    https://commons.wikimedia.org/wiki/File:Casino_Chip.svg
+
+Help Workflow: Unity Manual --> Google AI --> Reddit/Unity forums --> ChatGPT
